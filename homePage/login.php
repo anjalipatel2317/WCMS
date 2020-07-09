@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,15 +66,16 @@
 
                 <div class="signin-form">
                     <h2 class="form-title">Sign up</h2>
-                    <form method="POST" class="register-form" id="login-form">
+                    <form method="POST" action="../Controller/UserController.php" class="register-form" id="login-form">
                         <div class="form-group">
-                            <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                            <label for="your_username"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="your_username" id="your_username" placeholder="Your Username" required/>
                         </div>
                         <div class="form-group">
                             <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                            <input type="password" name="your_pass" id="your_pass" placeholder="Password" required/>
                         </div>
+                        <span class="error_nav" style="color: red;display: none"><?=$_SESSION['error']; ?></span>
                        <br><br>
                         <div class="form-group form-button">
                             <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
@@ -90,18 +96,26 @@
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 class="form-title">Sign up</h2>
-                    <form method="POST" class="register-form" id="register-form">
+                    <form method="POST" action="../Controller/UserController.php" class="register-form" id="register-form">
                         <div class="form-group">
                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="name" id="name" placeholder="Your Name"/>
+                            <input type="text" name="fname" id="name" placeholder="Your First Name"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="lname" id="name" placeholder="Your Last Name"/>
                         </div>
                         <div class="form-group">
                             <label for="email"><i class="zmdi zmdi-email"></i></label>
                             <input type="email" name="email" id="email" placeholder="Your Email"/>
                         </div>
                         <div class="form-group">
+                            <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="username" id="username" placeholder=" Enter Username"/>
+                        </div>
+                        <div class="form-group">
                             <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="pass" id="pass" placeholder="Password"/>
+                            <input type="password" name="pass" id="pass" placeholder=" Enter Password"/>
                         </div>
                         <div class="form-group">
                             <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
