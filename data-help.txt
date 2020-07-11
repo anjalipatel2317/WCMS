@@ -1,3 +1,0 @@
-User Table
-level -0 admin
-status 0 unblock
