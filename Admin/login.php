@@ -1,3 +1,12 @@
+<?php include "../head.inc.php";
+if(! isset($_SESSION['error'])){
+    $_SESSION['error']="";
+}
+else{
+
+}
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,12 +25,7 @@
 		<link rel="stylesheet" href="assets/css/form-elements.css">
         <link rel="stylesheet" href="assets/css/style.css">
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+       
 
         <!-- Favicon and touch icons -->
         <link rel="shortcut icon" href="assets/ico/favicon.png">
@@ -61,7 +65,7 @@
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">
-				                    <form name="form"  method="post" class="login-form" >
+				                    <form name="form"  method="post" action="Controller/UserController.php" class="login-form" >
 				                    	<div class="form-group">
 				                    		<label class="sr-only" for="form-username">Username</label>
 				                        	<input type="text" name="uname" placeholder="Username..." class="form-username form-control" id="form-username">
@@ -70,8 +74,13 @@
 				                        	<label class="sr-only" for="form-password">Password</label>
 				                        	<input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
 				                        </div>
-				                        <input type="submit" class="btn" name="submit" >
+				                        <input type="submit" class="btn" name="login" value="Sign in" >
 										</br></br>
+                                        <span style="color: red;font-size:larger "><?php
+                                            if(isset($_SESSION['error'])){
+                                                echo $_SESSION['error'];
+                                            }
+                                            $_SESSION['error']='';?></span>
 
 
 
