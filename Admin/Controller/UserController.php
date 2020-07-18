@@ -2,6 +2,22 @@
 include "../head.inc.php";
 $userMgr=new UserManager();
 
+
+//---------------------- Registration -----------------
+if(isset($_POST['insert'])){
+    $user=new User($_POST,1,0);
+    if($userMgr->signup($user))
+    {
+        header("location:../login.php");
+        $_SESSION['error']='Registration Successfully done.... Please login.';
+    } else {
+        $_SESSION['error'] = "Problem to registration... Please try after some time.....";
+    }
+}
+
+
+//-----------------------Login-----------------------
+
 if(isset($_POST['login'])){
 //    login($_POST);
 

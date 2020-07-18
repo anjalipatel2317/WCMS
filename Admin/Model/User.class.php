@@ -3,7 +3,6 @@
 
 class User
 {
-
     private $id;
     private $fname;
     private $lname;
@@ -24,7 +23,16 @@ class User
      * @param $level
      * @param $status
      */
-    public function __construct($arr)
+
+    function __construct()
+    {
+        $a = func_get_args();
+        $i = func_num_args();
+        if (method_exists($this,$f='__construct'.$i)) {
+            call_user_func_array(array($this,$f),$a);
+        }
+    }
+    public function __construct1($arr)
     {
         $this->id = $arr['user_id'];
         $this->fname = $arr['user_fname'];
@@ -34,6 +42,17 @@ class User
         $this->email = $arr['email'];
         $this->level = $arr['level'];
         $this->status = $arr['status'];
+    }
+    public function __construct3($arr,$level,$status)
+    {
+        $this->id = $arr['user_id'] ?? null;
+        $this->fname = $arr['user_fname'];
+        $this->lname = $arr['user_lname'];
+        $this->username = $arr['username'];
+        $this->password = $arr['password'];
+        $this->email = $arr['email'];
+        $this->level = $level;
+        $this->status = $status;
     }
 
     /**
