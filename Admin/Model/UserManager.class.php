@@ -4,6 +4,8 @@
 class UserManager extends DBManager
 {
 
+
+
         public function login($username){
 
                 $query  = $this->db->query( "SELECT * FROM user_master WHERE Username = '$username' " );

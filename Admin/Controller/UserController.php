@@ -2,6 +2,8 @@
 include "../head.inc.php";
 $userMgr=new UserManager();
 
+
+//--------------- Login -----------------------
 if(isset($_POST['login'])){
 //    login($_POST);
 
@@ -20,7 +22,7 @@ if(isset($_POST['login'])){
             echo $user->getLevel();
                 if($user->getLevel()==0){
                     header('location:../index.php');
-                    echo "in if";
+
                 }
                 else{
                     header('location:../moderator/index.php');
