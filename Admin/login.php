@@ -74,8 +74,9 @@ else{
 				                        	<label class="sr-only" for="form-password">Password</label>
 				                        	<input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
 				                        </div>
-				                        <input type="submit" class="btn" name="login" value="Sign in" >
-										</br></br>
+				                        <input type="submit" class="btn" name="login" value="Sign in" ><br><br>
+                                        <p style="text-align: center;font-size: smaller">Not registered?<a href="register.php"> Create an account</a></p>
+
                                         <span style="color: red;font-size:larger "><?php
                                             if(isset($_SESSION['error'])){
                                                 echo $_SESSION['error'];

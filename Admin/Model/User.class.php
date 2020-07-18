@@ -3,7 +3,6 @@
 
 class User
 {
-
     private $id;
     private $fname;
     private $lname;
@@ -27,7 +26,10 @@ class User
      *
      */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d23f1dbaed88645a3707cb033e46917166e2e873
     function __construct()
     {
         $a = func_get_args();
@@ -46,6 +48,17 @@ class User
         $this->email = $arr['email'];
         $this->level = $arr['level'];
         $this->status = $arr['status'];
+    }
+    public function __construct3($arr,$level,$status)
+    {
+        $this->id = $arr['user_id'] ?? null;
+        $this->fname = $arr['user_fname'];
+        $this->lname = $arr['user_lname'];
+        $this->username = $arr['username'];
+        $this->password = $arr['password'];
+        $this->email = $arr['email'];
+        $this->level = $level;
+        $this->status = $status;
     }
 
     public function __construct3($arr,$lev,$status)

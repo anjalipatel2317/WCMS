@@ -4,8 +4,23 @@
 class UserManager extends DBManager
 {
 
+<<<<<<< HEAD
 
 
+=======
+    public function signup(User $user){
+        $query       = $this->db->prepare( "INSERT INTO `user_master`( `user_fname`, `user_lname`, `username`, `password`, `email`, `level`, `status`) VALUES (:fname,:lname,:username,:password,:email,:lev,:status)  " );
+        return $query->execute( array(
+            "fname"=> $user->getFname(),
+            "lname"=> $user->getLname(),
+            "username"=> $user->getUsername(),
+            "password"=> $user->getPassword(),
+            "email"=> $user->getEmail(),
+            "lev"=> $user->getLevel(),
+            "status"=> $user->getStatus(),
+        ) );
+    }
+>>>>>>> d23f1dbaed88645a3707cb033e46917166e2e873
         public function login($username){
 
                 $query  = $this->db->query( "SELECT * FROM user_master WHERE Username = '$username' " );
