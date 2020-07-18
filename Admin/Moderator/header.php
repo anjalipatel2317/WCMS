@@ -44,7 +44,7 @@
 							<ul class="nav navbar-nav navbar-right">
 									<li>
 											<a href="change_pass.php">
-													Change Password
+													Update Profile
 											</a>
 									</li>
 									<li>

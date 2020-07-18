@@ -3,9 +3,7 @@ include "../head.inc.php";
 $userMgr=new UserManager();
 
 
-<<<<<<< HEAD
-//--------------- Login -----------------------
-=======
+
 //---------------------- Registration -----------------
 if(isset($_POST['insert'])){
     $user=new User($_POST,1,0);
@@ -21,7 +19,6 @@ if(isset($_POST['insert'])){
 
 //-----------------------Login-----------------------
 
->>>>>>> d23f1dbaed88645a3707cb033e46917166e2e873
 if(isset($_POST['login'])){
 //    login($_POST);
 
@@ -34,17 +31,22 @@ if(isset($_POST['login'])){
     else{
         $user=new User($u_data);
         if($_POST['password']==$user->getPassword()){
-            $_SESSION['user_info']=serialize($user);
-            $_SESSION['login_flag']=true;
+            if($user->getStatus()==0) {
+                $_SESSION['user_info'] = serialize($user);
+                $_SESSION['login_flag'] = true;
 
-            echo $user->getLevel();
-                if($user->getLevel()==0){
+                echo $user->getLevel();
+                if ($user->getLevel() == 0) {
                     header('location:../index.php');
 
-                }
-                else{
+                } else {
                     header('location:../moderator/index.php');
                 }
+            }
+            else{
+                $_SESSION['error']='This Username is blocked... Please Contact Admin@cms.com.';
+                header('location:../login.php');
+            }
         }
         else{
             $_SESSION['error']='Username And Password is wrong....';
@@ -97,4 +99,41 @@ if(isset($_POST['changePsw'])){
     else{
         header('location:../Moderator/change_pass.php');
     }
+}
+
+//----------------- Update Profile ----------------
+if(isset($_POST['updateProfile'])){
+    $user=unserialize($_SESSION['user_info']);
+
+
+    if($userMgr->updateProfile($_POST,$user->getId()))
+    {
+        $user->setFname($_POST['user_fname']);
+        $user->setlname($_POST['user_lname']);
+        $user->setEmail($_POST['email']);
+        print_r($user);
+        $_SESSION['user_info']=serialize($user);
+
+        $_SESSION['profile']='Profile Successfully Updated...';
+    } else {
+        $_SESSION['profile'] = "Problem to Update Profile... Please try after some time.....";
+    }
+
+    if($user->getLevel()==0){
+        header('location:../change_pass.php');
+    }
+    else{
+        header('location:../Moderator/change_pass.php');
+    }
+}
+
+//------------------- Block User -----------------
+if(isset($_GET['block'])){
+        if($userMgr->blockUser($_GET['block'],$_GET['value'])){
+            header('location:../user.php');
+        }
+        else{
+            $_SESSION['error']='Please try after some time...';
+            header('location:../user.php');
+        }
 }

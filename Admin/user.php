@@ -16,7 +16,11 @@
 
 	<div class="main-panel">
 
-		<?php include 'header.php';?>
+		<?php include 'header.php';
+		$userMgr=new UserManager();
+        $userlist=$userMgr->getUserData();
+
+		?>
 
 		
 				
@@ -33,17 +37,35 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th></th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Username</th>
+                                        <th>Level</th>
+                                        <th>Action</th>
                                     </thead>
                                     <tbody>
-										
+									        <?php foreach ($userlist as $user) :
+                                            $singleUser=new User($user);?>
                                         <tr>
-											<td></td>
-													
+											<td><?=$singleUser->getFname() ?></td>
+                                            <td><?=$singleUser->getLname() ?></td>
+                                            <td><?=$singleUser->getEmail() ?></td>
+                                            <td><?=$singleUser->getUsername() ?></td>
+                                            <td><?=($singleUser->getLevel()==0)?'Admin':'Moderator' ?></td>
+                                            <td><?php if($singleUser->getStatus()==0){?>
+                                                <a href="Controller/UserController.php?block=<?=$singleUser->getId()?>&value=1"> Block</a>
+                                                <?php }
+                                                else{ ?>
+                                                <a href="Controller/UserController.php?block=<?=$singleUser->getId()?>&value=0">
+                                                UnBlock
+                                                </a>
+                                               <?php  }?>
+                                            </td>
 										</tr>
 										
 										
-										
+										<?php endforeach; ?>
                                     </tbody>
                                 </table>
 

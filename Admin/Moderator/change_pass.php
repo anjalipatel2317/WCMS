@@ -16,9 +16,73 @@
 
 		<div class="main-panel">
 
-			<?php include 'header.php';?>
+			<?php include 'header.php';
+            $user=unserialize($_SESSION['user_info']);
+//            print_r($user);
+			?>
 
-        <div class="content">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Update Profile </h4>
+                                </div>
+                                <div class="content">
+                                    <form method="post" action="../Controller/UserController.php">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label>First Name</label>
+                                                    <input type="text" class="form-control" placeholder="First Name" name="user_fname" value="<?=$user->getFname(); ?>" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label>Last Name</label>
+                                                    <input type="text" class="form-control" placeholder="Last Name" name="user_lname"  value="<?=$user->getLname(); ?>" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label>Email</label>
+                                                    <input type="email" class="form-control" placeholder="Email" name="email"  value="<?=$user->getEmail(); ?>"  >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label>Email</label>
+                                                    <input type="text" class="form-control" placeholder="Email" name="username"  value="<?=$user->getUsername(); ?>" disabled >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="btn btn-info btn-fill pull-right" name="updateProfile" value="Update Profile"></br></br>
+                                    </form>
+                                    <span style="color: red;font-size:larger "><?php
+                                        if(isset($_SESSION['profile'])){
+                                            echo $_SESSION['profile'];
+                                        }
+                                        $_SESSION['profile']='';?></span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-8">

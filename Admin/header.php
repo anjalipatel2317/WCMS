@@ -44,8 +44,8 @@
 							<ul class="nav navbar-nav navbar-right">
 									<li>
 											<a href="change_pass.php">
-													Change Password
-											</a>
+													Update Profile
+																								</a>
 									</li>
 									<li>
                                         <a href="Controller/UserController.php?logout=logout">

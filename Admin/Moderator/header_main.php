@@ -1,4 +1,5 @@
 <?php include '../head.inc.php';
+$user=unserialize($_SESSION['user_info']);
 if((!isset($_SESSION['login_flag']) && (!$_SESSION['login_flag'])))
 {
     header('location:../login.php');

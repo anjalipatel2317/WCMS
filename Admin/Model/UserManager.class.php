@@ -4,10 +4,6 @@
 class UserManager extends DBManager
 {
 
-<<<<<<< HEAD
-
-
-=======
     public function signup(User $user){
         $query       = $this->db->prepare( "INSERT INTO `user_master`( `user_fname`, `user_lname`, `username`, `password`, `email`, `level`, `status`) VALUES (:fname,:lname,:username,:password,:email,:lev,:status)  " );
         return $query->execute( array(
@@ -20,7 +16,6 @@ class UserManager extends DBManager
             "status"=> $user->getStatus(),
         ) );
     }
->>>>>>> d23f1dbaed88645a3707cb033e46917166e2e873
         public function login($username){
 
                 $query  = $this->db->query( "SELECT * FROM user_master WHERE Username = '$username' " );
@@ -34,5 +29,34 @@ class UserManager extends DBManager
             "id"=>$id,
         ) );
 
+    }
+
+
+
+    public function updateProfile($arr,$id){
+        $query       = $this->db->prepare( "UPDATE `user_master` SET `user_fname`=:fname,`user_lname`=:lname,`email`=:email WHERE `user_id`=:id " );
+        return $query->execute( array(
+            "fname"=> $arr['user_fname'],
+            "lname"=> $arr['user_lname'],
+
+            "email"=> $arr['email'],
+
+            "id"=>$id,
+        ) );
+    }
+
+    public function getUserData(){
+
+            $query    = $this->db->query( "SELECT * FROM `user_master` " );
+            return $query->fetchAll( PDO::FETCH_ASSOC );
+
+    }
+
+    public function blockUser($id,$val){
+        $query=$this->db->prepare("UPDATE `user_master` SET `status`=:val WHERE `user_id`=:id;");
+        return $query->execute( array(
+            "id"=>$id,
+            "val"=>$val,
+        ) );
     }
 }
