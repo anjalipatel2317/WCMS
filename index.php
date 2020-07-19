@@ -1,3 +1,11 @@
+<?php include 'includeFile.php';
+
+    $homeMgr=new HomeManager();
+$data=$homeMgr->getSlider(1);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
    <head>
@@ -24,9 +32,7 @@
       <header>
          <div id="topbar" class="hide-s hide-m">
             <div class="line">
-<!--               <div class="m-6 l-6 hide-s">-->
-<!--                  <p>CONTACT US: <strong>0800 200 200</strong> | <strong>contact@sampledomain.com</strong></p>-->
-<!--               </div>-->
+
                <div class="s-12 m-6 l-6">
 <!--                  <div class="social right">-->
 <!--                     <a><i class="icon-facebook_circle"></i></a> <a><i class="icon-twitter_circle"></i></a> <a><i class="icon-google_plus_circle"></i></a> <a><i class="icon-instagram_circle"></i></a>-->
@@ -37,7 +43,7 @@
          <nav>
             <div class="line">
                <div class="s-12 l-2">
-                  <p class="logo">Think<strong>Beyond</strong></p>
+                  <p class="logo">ThinkBeyond</p>
                </div>
                <div class="top-nav s-12 l-10">
                   
@@ -56,9 +62,15 @@
       <section>
          <!-- CAROUSEL --> 
          <div id="carousel">
-            <div id="owl-demo" class="owl-carousel owl-theme"> 
+            <div id="owl-demo" class="owl-carousel owl-theme">
+
+
+                <?php foreach ($data as $data):
+                    $h=new Home($data);
+
+                ?>
                <div class="item">
-                  <img src="img/first.jpg" alt="">
+                  <img src="Admin/<?=$h->getSlider()?>" alt="">
                   <div class="line">
                      <div class="text hide-s">
                         <div class="line">
@@ -69,42 +81,45 @@
                              <i class="icon-chevron_right"></i>
                           </div>
                         </div>
-                        <h2>Free Onepage Responsive Template</h2>
+                        <h2><?=$h->getSliderText() ?></h2>
                      </div>
                   </div>
                </div>
-               <div class="item">
-                  <img src="img/second.jpg" alt="">
-                  <div class="line">
-                     <div class="text hide-s"> 
-                        <div class="line"> 
-                          <div class="prev-arrow hide-s hide-m">
-                             <i class="icon-chevron_left"></i>
-                          </div>
-                          <div class="next-arrow hide-s hide-m">
-                             <i class="icon-chevron_right"></i>
-                          </div>
-                        </div> 
-                        <h2>Fully Responsive Components</h2>
-                     </div>
-                  </div>
-               </div>
-               <div class="item">
-                  <img src="img/third.jpg" alt="">
-                  <div class="line">
-                     <div class="text hide-s">
-                        <div class="line"> 
-                          <div class="prev-arrow hide-s hide-m">
-                             <i class="icon-chevron_left"></i>
-                          </div>
-                          <div class="next-arrow hide-s hide-m">
-                             <i class="icon-chevron_right"></i>
-                          </div>
-                        </div> 
-                        <h2>Build new Layout in 10 minutes!</h2>
-                     </div>
-                  </div>
-               </div>
+
+                                <?php endforeach; ?>
+<!--               <div class="item">-->
+<!--                  <img src="img/second.jpg" alt="">-->
+<!--                  <div class="line">-->
+<!--                     <div class="text hide-s">-->
+<!--                        <div class="line">-->
+<!--                          <div class="prev-arrow hide-s hide-m">-->
+<!--                             <i class="icon-chevron_left"></i>-->
+<!--                          </div>-->
+<!--                          <div class="next-arrow hide-s hide-m">-->
+<!--                             <i class="icon-chevron_right"></i>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                        <h2>Fully Responsive Components</h2>-->
+<!--                     </div>-->
+<!--                  </div>-->
+<!--               </div>-->
+<!--               <div class="item">-->
+<!--                  <img src="img/third.jpg" alt="">-->
+<!--                  <div class="line">-->
+<!--                     <div class="text hide-s">-->
+<!--                        <div class="line">-->
+<!--                          <div class="prev-arrow hide-s hide-m">-->
+<!--                             <i class="icon-chevron_left"></i>-->
+<!--                          </div>-->
+<!--                          <div class="next-arrow hide-s hide-m">-->
+<!--                             <i class="icon-chevron_right"></i>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                        <h2>Build new Layout in 10 minutes!</h2>-->
+<!--                     </div>-->
+<!--                  </div>-->
+<!--               </div>-->
+
             </div>
          </div>
          <!-- FIRST BLOCK -->

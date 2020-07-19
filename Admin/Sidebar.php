@@ -69,7 +69,12 @@
                       <p>Template Management</p>
                   </a>
               </li>
-				
+              <li>
+                  <a href="home.php">
+                      <i class="pe-7s-notebook"></i>
+                      <p>Home</p>
+                  </a>
+              </li>
 			  
              
 					
