@@ -6,6 +6,9 @@ $data=$homeMgr->getSlider(1);
 $welcometextMgr = new WelcomeTextManager();
 $welcometext = $welcometextMgr->getwelcometext(1);
 
+$teamMgr=new TeamManager();
+$teamlist=$teamMgr->getMember(1);
+
 
 ?>
 
@@ -113,27 +116,46 @@ $welcometext = $welcometextMgr->getwelcometext(1);
          <div id="features">
             <div class="line">
                <div class="margin">
-                  <div class="s-12 m-6 l-12 margin-bottom">
-                     <i class="icon-tablet icon3x"></i>
-                     <h2>Fully responsive</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                   <?php if(count($teamlist)>4){
+                       $class='l-3';
+                   }
+                   else{
+                       $class='l-'. 12/count($teamlist);
+                   }
+//                   echo $class;
+                   ?>
+                   <?php foreach ($teamlist as $team) :
+                       $team=new Team($team); ?>
+
+                  <div class="s-12 m-6 <?=$class?> margin-bottom">
+                     <img src="Admin/<?=$team->getMemberImg()?>" style="border-radius:50%;height:150px;width: 150px ;margin: auto" >
+                     <h2><?=$team->getMemberName() ?></h2>
+                     <p><?=$team->getDesc()?></p>
                   </div>
-                 <!-- <div class="s-1 m-6 l-3 margin-bottom">
-                     <i class="icon-isight icon3x"></i>
-                     <h2>Clean design</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adipiscing.</p>
-                  </div>
-                  <div class="s-12 m-6 l-3 margin-bottom">
-                     <i class="icon-star icon3x"></i>
-                     <h2>Valid code</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna erat volutpat.</p>
-                  </div>
-                  <div class="s-12 m-6 l-3 margin-bottom">
-                     <i class="icon-heart icon3x"></i>
-                     <h2>Totally free</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat nonummy.</p>
-                  </div>
-                   <div class="s-12 m-6 l-12 margin-bottom">
+
+                   <?php endforeach; ?>
+
+
+
+
+<!--                   <div class="s-1 m-6 l-3 margin-bottom">-->
+<!--                       <img src="img/client2.jpg" >-->
+<!--                     <h2>Clean design</h2>-->
+<!--                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adipiscing.</p>-->
+<!--                  </div>-->
+<!--                  <div class="s-12 m-6 l-3 margin-bottom">-->
+<!--                      <img src="img/client3.jpg" >-->
+<!--                     <h2>Valid code</h2>-->
+<!--                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna erat volutpat.</p>-->
+<!--                  </div>-->
+<!--                  <div class="s-12 m-6 l-3 margin-bottom">-->
+<!--                      <img src="img/about.jpg" >-->
+<!--                     <h2>Totally free</h2>-->
+<!--                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat nonummy.</p>-->
+<!--                  </div> -->
+
+
+                  <!-- <div class="s-12 m-6 l-12 margin-bottom">
                        <i class="icon-heart icon3x"></i>
                        <h2>Totally free</h2>
                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat nonummy.</p>
