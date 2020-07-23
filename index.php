@@ -113,12 +113,12 @@ $welcometext = $welcometextMgr->getwelcometext(1);
          <div id="features">
             <div class="line">
                <div class="margin">
-                  <div class="s-12 m-6 l-3 margin-bottom">
+                  <div class="s-12 m-6 l-12 margin-bottom">
                      <i class="icon-tablet icon3x"></i>
                      <h2>Fully responsive</h2>
                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                   </div>
-                  <div class="s-12 m-6 l-3 margin-bottom">
+                 <!-- <div class="s-1 m-6 l-3 margin-bottom">
                      <i class="icon-isight icon3x"></i>
                      <h2>Clean design</h2>
                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adipiscing.</p>
@@ -133,6 +133,11 @@ $welcometext = $welcometextMgr->getwelcometext(1);
                      <h2>Totally free</h2>
                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat nonummy.</p>
                   </div>
+                   <div class="s-12 m-6 l-12 margin-bottom">
+                       <i class="icon-heart icon3x"></i>
+                       <h2>Totally free</h2>
+                       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat nonummy.</p>
+                   </div>-->
                </div>
             </div>
          </div>
