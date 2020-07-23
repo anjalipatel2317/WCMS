@@ -60,7 +60,7 @@
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <label>Email</label>
+                                                    <label>Username</label>
                                                     <input type="text" class="form-control" placeholder="Email" name="username"  value="<?=$user->getUsername(); ?>" disabled >
                                                 </div>
                                             </div>

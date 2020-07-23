@@ -26,7 +26,7 @@ if(isset($_POST['addSlider'])){
     $home=new Home($_POST,1,$path);
     print_r($home);
    if( $homeMgr->insertSlider($home)){
-      header('location:../home.php');
+      header('location:../slider.php');
    }
    else{
        echo "fail";
@@ -36,7 +36,7 @@ if(isset($_POST['addSlider'])){
 
 if(isset($_GET['block'])){
     $homeMgr->deleteSliderImage($_GET['block']);
-        header('location:../home.php');
+        header('location:../slider.php');
 
 
 }

@@ -70,9 +70,15 @@
                   </a>
               </li>
               <li>
-                  <a href="home.php">
+                  <a href="slider.php">
                       <i class="pe-7s-notebook"></i>
-                      <p>Home</p>
+                      <p>Slider</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="welcometxt.php">
+                      <i class="pe-7s-notebook"></i>
+                      <p>WelCome Text</p>
                   </a>
               </li>
 			  

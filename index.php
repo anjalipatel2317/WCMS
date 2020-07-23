@@ -3,6 +3,9 @@
     $homeMgr=new HomeManager();
 $data=$homeMgr->getSlider(1);
 
+$welcometextMgr = new WelcomeTextManager();
+$welcometext = $welcometextMgr->getwelcometext(1);
+
 
 ?>
 
@@ -43,7 +46,7 @@ $data=$homeMgr->getSlider(1);
          <nav>
             <div class="line">
                <div class="s-12 l-2">
-                  <p class="logo">ThinkBeyond</p>
+                   <p class="logo">Think<strong>Beyond</strong></p>
                </div>
                <div class="top-nav s-12 l-10">
                   
@@ -87,49 +90,24 @@ $data=$homeMgr->getSlider(1);
                </div>
 
                                 <?php endforeach; ?>
-<!--               <div class="item">-->
-<!--                  <img src="img/second.jpg" alt="">-->
-<!--                  <div class="line">-->
-<!--                     <div class="text hide-s">-->
-<!--                        <div class="line">-->
-<!--                          <div class="prev-arrow hide-s hide-m">-->
-<!--                             <i class="icon-chevron_left"></i>-->
-<!--                          </div>-->
-<!--                          <div class="next-arrow hide-s hide-m">-->
-<!--                             <i class="icon-chevron_right"></i>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                        <h2>Fully Responsive Components</h2>-->
-<!--                     </div>-->
-<!--                  </div>-->
-<!--               </div>-->
-<!--               <div class="item">-->
-<!--                  <img src="img/third.jpg" alt="">-->
-<!--                  <div class="line">-->
-<!--                     <div class="text hide-s">-->
-<!--                        <div class="line">-->
-<!--                          <div class="prev-arrow hide-s hide-m">-->
-<!--                             <i class="icon-chevron_left"></i>-->
-<!--                          </div>-->
-<!--                          <div class="next-arrow hide-s hide-m">-->
-<!--                             <i class="icon-chevron_right"></i>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                        <h2>Build new Layout in 10 minutes!</h2>-->
-<!--                     </div>-->
-<!--                  </div>-->
-<!--               </div>-->
+
 
             </div>
          </div>
          <!-- FIRST BLOCK -->
          <div id="first-block">
+             <?php
+             foreach ($welcometext as $welcometext):
+             $welcometext = new WelcomeText($welcometext)
+             ?>
             <div class="line">
                 <br><br><br><br>
-               <h1>Amazing Responsive Business Template</h1>
-               <p>Create your free website today!</p>
-               <div class="s-12 m-4 l-2 center"><a class="white-btn" href="#">SELECT TEMPLATES</a></div>
+               <h1><?= $welcometext->getWelcomeText() ?></h1>
+<!--               <p>Create your free website today!</p>-->
+               <div class="s-12 m-4 l-2 center"><a class="white-btn" href="#our-work">SELECT TEMPLATES</a></div>
             </div>
+
+             <?php endforeach;?>
          </div>
          <!-- FEATURES -->
          <div id="features">
