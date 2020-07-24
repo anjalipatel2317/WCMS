@@ -81,6 +81,12 @@
                       <p>WelCome Text</p>
                   </a>
               </li>
+              <li>
+                  <a href="about.php">
+                      <i class="pe-7s-notebook"></i>
+                      <p>About</p>
+                  </a>
+              </li>
 			  
              
 					
