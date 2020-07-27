@@ -24,7 +24,7 @@ if(isset($_POST['addSlider'])){
 
 
     $home=new Home($_POST,1,$path);
-    print_r($home);
+  //  print_r($home);
    if( $homeMgr->insertSlider($home)){
       header('location:../slider.php');
    }

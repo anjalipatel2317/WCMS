@@ -6,6 +6,10 @@ $data=$homeMgr->getSlider(1);
 $welcometextMgr = new WelcomeTextManager();
 $welcometext = $welcometextMgr->getwelcometext(1);
 
+
+$aboutMgr = new AboutManager();
+$about = $aboutMgr->getAbout(1);
+
 $teamMgr=new TeamManager();
 $teamlist=$teamMgr->getMember(1);
 
@@ -15,6 +19,7 @@ $serviceslist=$servicesMgr->getServices(1);
 
 $contactMgr=new ContactManager();
 $contactList = $contactMgr->getContact(1);
+
 
 ?>
 
@@ -122,6 +127,28 @@ $contactList = $contactMgr->getContact(1);
          <div id="features">
             <div class="line">
                <div class="margin">
+
+<!--                  <div class="s-12 m-6 l-12 margin-bottom">-->
+<!--                    <img src="img/client1.jpg" style="height: 150px;width: 150px;margin: auto;border-radius: 50%">-->
+<!--                     <h2>Fully responsive</h2>-->
+<!--                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
+<!--                  </div>-->
+                 <!-- <div class="s-1 m-6 l-3 margin-bottom">
+                      <img src="img/client2.jpg" style="height: 150px;width: 150px;margin: auto;border-radius: 50%">
+                     <h2>Clean design</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adipiscing.</p>
+                  </div>
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                      <img src="img/client3.jpg" style="height: 150px;width: 150px;margin: auto;border-radius: 50%">
+                     <h2>Valid code</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna erat volutpat.</p>
+                  </div>
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                      <img src="img/about.jpg" style="height: 150px;width: 150px;margin: auto;border-radius: 50%">
+                     <h2>Totally free</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat nonummy.</p>
+                  </div>-->
+
                    <?php if(count($teamlist)>4){
                        $class='l-3';
                    }
@@ -144,21 +171,7 @@ $contactList = $contactMgr->getContact(1);
 
 
 
-<!--                   <div class="s-1 m-6 l-3 margin-bottom">-->
-<!--                       <img src="img/client2.jpg" >-->
-<!--                     <h2>Clean design</h2>-->
-<!--                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adipiscing.</p>-->
-<!--                  </div>-->
-<!--                  <div class="s-12 m-6 l-3 margin-bottom">-->
-<!--                      <img src="img/client3.jpg" >-->
-<!--                     <h2>Valid code</h2>-->
-<!--                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna erat volutpat.</p>-->
-<!--                  </div>-->
-<!--                  <div class="s-12 m-6 l-3 margin-bottom">-->
-<!--                      <img src="img/about.jpg" >-->
-<!--                     <h2>Totally free</h2>-->
-<!--                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat nonummy.</p>-->
-<!--                  </div> -->
+
 
 
                   <!-- <div class="s-12 m-6 l-12 margin-bottom">
@@ -166,24 +179,29 @@ $contactList = $contactMgr->getContact(1);
                        <h2>Totally free</h2>
                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat nonummy.</p>
                    </div>-->
+
                </div>
             </div>
          </div>
          <!-- ABOUT US -->
          <div id="about-us">
+             <?php
+             foreach ($about as $about):
+             $about = new About($about);
+
+             ?>
             <div class="s-12 m-12 l-6 media-container">
-               <img src="img/about.jpg" alt="">
+               <img src="Admin/<?= $about-> getAboutImg()?>" alt="">
             </div>
             <article class="s-12 m-12 l-6">
-               <h2>We are<br> Web Design<br> Heroes</h2>
-               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet 
-                 dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
-                 lobortis nisl ut aliquip ex ea commodo consequat.
+               <h2><?= $about->getAboutTitle()?></h2>
+               <p><?= $about->getAboutText() ?>
                </p>
               <!-- <div class="about-us-icons">
                   <i class="icon-paperplane_ico"></i> <i class="icon-trophy"></i> <i class="icon-clock"></i>
                </div>-->
             </article>
+             <?php endforeach;?>
          </div>
          <!-- OUR WORK -->
          <div id="our-work">
