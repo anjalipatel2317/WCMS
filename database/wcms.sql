@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 23, 2020 at 06:39 PM
--- Server version: 5.7.26
--- PHP Version: 7.2.18
+-- Generation Time: Jul 27, 2020 at 06:39 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `wcms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+DROP TABLE IF EXISTS `contact`;
+CREATE TABLE IF NOT EXISTS `contact` (
+  `contact_id` int(11) NOT NULL AUTO_INCREMENT,
+  `temp_id` int(11) NOT NULL,
+  `address` varchar(1000) NOT NULL,
+  `country` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `facebook` varchar(500) DEFAULT NULL,
+  `twitter` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`contact_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`contact_id`, `temp_id`, `address`, `country`, `email`, `facebook`, `twitter`) VALUES
+(1, 1, '#416,1420 Boulevard Jules Potras', 'Canada', 'pkeyur888@gmail.com', '', '');
 
 -- --------------------------------------------------------
 
@@ -45,6 +70,54 @@ INSERT INTO `home` (`home_id`, `temp_id`, `slider`, `slider_text`) VALUES
 (9, 1, 'assets/img/third.jpg', 'Image 3'),
 (7, 1, 'assets/img/first.jpg', 'Image 1'),
 (8, 1, 'assets/img/second.jpg', 'Image 2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `servises`
+--
+
+DROP TABLE IF EXISTS `servises`;
+CREATE TABLE IF NOT EXISTS `servises` (
+  `services_id` int(11) NOT NULL AUTO_INCREMENT,
+  `temp_id` int(11) NOT NULL,
+  `services_name` varchar(500) NOT NULL,
+  `services_desc` varchar(3000) NOT NULL,
+  PRIMARY KEY (`services_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `servises`
+--
+
+INSERT INTO `servises` (`services_id`, `temp_id`, `services_name`, `services_desc`) VALUES
+(1, 1, 'Testing', 'We do free '),
+(2, 1, 'Testing-2', 'We develop Application ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `team`
+--
+
+DROP TABLE IF EXISTS `team`;
+CREATE TABLE IF NOT EXISTS `team` (
+  `team_id` int(11) NOT NULL AUTO_INCREMENT,
+  `temp_id` int(11) NOT NULL,
+  `member_name` varchar(30) NOT NULL,
+  `member_img` varchar(500) NOT NULL,
+  `desc` varchar(1000) NOT NULL,
+  PRIMARY KEY (`team_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `team`
+--
+
+INSERT INTO `team` (`team_id`, `temp_id`, `member_name`, `member_img`, `desc`) VALUES
+(1, 1, 'Keyur Patel', 'assets/img/IMG_20200605_224550.jpg', 'Web Developer'),
+(3, 1, 'Suhani', 'assets/img/tanaphong-toochinda-GagC07wVvck-unsplash.jpg', 'HR Manager'),
+(8, 1, 'Anjali', 'assets/img/tanaphong-toochinda-GagC07wVvck-unsplash.jpg', 'Front-End Developer');
 
 -- --------------------------------------------------------
 

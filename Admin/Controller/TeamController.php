@@ -30,6 +30,7 @@ if(isset($_POST['addMember'])){
     }
     else{
         $_SESSION['error']="Problem to add!!. Please try after some time. ";
+        header('location:../team.php');
     }
 
 }

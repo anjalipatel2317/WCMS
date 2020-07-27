@@ -87,9 +87,19 @@
                       <p>Add Team Member</p>
                   </a>
               </li>
-             
-					
-              
+              <li>
+                  <a href="services.php">
+                      <i class="pe-7s-notebook"></i>
+                      <p>Add Services</p>
+                  </a>
+              </li>
+
+              <li>
+                  <a href="contact.php">
+                      <i class="pe-7s-notebook"></i>
+                      <p>Manage Contact Us</p>
+                  </a>
+              </li>
           </ul>
     </div>
   </div>
