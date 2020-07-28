@@ -42,6 +42,18 @@
 							</ul>
 
 							<ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <?php
+                                        $user=unserialize($_SESSION['user_info']);
+
+
+
+                                    ?><a href="Controller/UserController.php?logout=logout">
+                                        <i class="pe-7s-user"></i>
+                                        <?=$user->getFname()." ".$user->getLname()?>
+                                    </a>
+
+                                </li>
 									<li>
 											<a href="change_pass.php">
 													Update Profile

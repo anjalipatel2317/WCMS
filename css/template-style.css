@@ -371,6 +371,7 @@ a.tab-label:hover, a.tab-label.active-btn {
 	background: #6f9600 none repeat scroll 0 0;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 	padding: 6em 2em;
+
 }
 #services h2 {
 	color: #fff;

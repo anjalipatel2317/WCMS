@@ -72,29 +72,28 @@
               <li>
                   <a href="slider.php">
                       <i class="pe-7s-notebook"></i>
-                      <p>Slider</p>
+                      <p>Add Slider</p>
                   </a>
               </li>
               <li>
                   <a href="welcometxt.php">
                       <i class="pe-7s-notebook"></i>
-                      <p>WelCome Text</p>
+                      <p> Manage WelCome Text</p>
                   </a>
               </li>
-              <li>
-
-                  <a href="about.php">
-                      <i class="pe-7s-notebook"></i>
-                      <p>About</p>
-                  </a>
-              </li>
-
               <li>
                   <a href="team.php">
                       <i class="pe-7s-notebook"></i>
                       <p>Add Team Member</p>
                   </a>
               </li>
+              <li>
+                  <a href="about.php">
+                      <i class="pe-7s-notebook"></i>
+                      <p>Manage About</p>
+                  </a>
+              </li>
+
               <li>
                   <a href="services.php">
                       <i class="pe-7s-notebook"></i>
@@ -106,6 +105,13 @@
                   <a href="contact.php">
                       <i class="pe-7s-notebook"></i>
                       <p>Manage Contact Us</p>
+                  </a>
+              </li>
+
+              <li>
+                  <a href="manageFooter.php">
+                      <i class="pe-7s-notebook"></i>
+                      <p>Manage Footer</p>
                   </a>
               </li>
 

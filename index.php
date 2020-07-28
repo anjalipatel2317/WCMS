@@ -20,6 +20,8 @@ $serviceslist=$servicesMgr->getServices(1);
 $contactMgr=new ContactManager();
 $contactList = $contactMgr->getContact(1);
 
+$footerMgr = new FooterManager();
+$footer = $footerMgr->getFooter(1);
 
 ?>
 
@@ -128,26 +130,6 @@ $contactList = $contactMgr->getContact(1);
             <div class="line">
                <div class="margin">
 
-<!--                  <div class="s-12 m-6 l-12 margin-bottom">-->
-<!--                    <img src="img/client1.jpg" style="height: 150px;width: 150px;margin: auto;border-radius: 50%">-->
-<!--                     <h2>Fully responsive</h2>-->
-<!--                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
-<!--                  </div>-->
-                 <!-- <div class="s-1 m-6 l-3 margin-bottom">
-                      <img src="img/client2.jpg" style="height: 150px;width: 150px;margin: auto;border-radius: 50%">
-                     <h2>Clean design</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat adipiscing.</p>
-                  </div>
-                  <div class="s-12 m-6 l-3 margin-bottom">
-                      <img src="img/client3.jpg" style="height: 150px;width: 150px;margin: auto;border-radius: 50%">
-                     <h2>Valid code</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna erat volutpat.</p>
-                  </div>
-                  <div class="s-12 m-6 l-3 margin-bottom">
-                      <img src="img/about.jpg" style="height: 150px;width: 150px;margin: auto;border-radius: 50%">
-                     <h2>Totally free</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat nonummy.</p>
-                  </div>-->
 
                    <?php if(count($teamlist)>4){
                        $class='l-3';
@@ -155,7 +137,7 @@ $contactList = $contactMgr->getContact(1);
                    else{
                        $class='l-'. 12/count($teamlist);
                    }
-//                   echo $class;
+
                    ?>
                    <?php foreach ($teamlist as $team) :
                        $team=new Team($team); ?>
@@ -169,16 +151,6 @@ $contactList = $contactMgr->getContact(1);
                    <?php endforeach; ?>
 
 
-
-
-
-
-
-                  <!-- <div class="s-12 m-6 l-12 margin-bottom">
-                       <i class="icon-heart icon3x"></i>
-                       <h2>Totally free</h2>
-                       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat nonummy.</p>
-                   </div>-->
 
                </div>
             </div>
@@ -197,9 +169,7 @@ $contactList = $contactMgr->getContact(1);
                <h2><?= $about->getAboutTitle()?></h2>
                <p><?= $about->getAboutText() ?>
                </p>
-              <!-- <div class="about-us-icons">
-                  <i class="icon-paperplane_ico"></i> <i class="icon-trophy"></i> <i class="icon-clock"></i>
-               </div>-->
+
             </article>
              <?php endforeach;?>
          </div>
@@ -219,78 +189,41 @@ $contactList = $contactMgr->getContact(1);
                       </div>
                     </div>  
                   </div>
-                 <!-- <div class="tab-item">
-                    <a class="tab-label">Development</a>        
-                    <div class="tab-content">
-                      <div class="margin">
-                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/por7.jpg" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/por5.jpg" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/por1.jpg" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/por2.jpg" alt=""></a></div>
-                      </div>
-                    </div>  
-                  </div>-->
-                 <!-- <div class="tab-item">
-                    <a class="tab-label">Social Campaigns</a>
-                    <div class="tab-content">
-                      <div class="margin">
-                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/por4.jpg" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/por6.jpg" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/por3.jpg" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/por5.jpg" alt=""></a></div>
-                      </div>
-                    </div>  
-                  </div>-->
-<!--                  <div class="tab-item">-->
-<!--                    <a class="tab-label">Photography</a>-->
-<!--                    <div class="tab-content">-->
-<!--                      <div class="margin">-->
-<!--                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/por7.jpg" alt=""></a></div>-->
-<!--                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/por2.jpg" alt=""></a></div>-->
-<!--                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/por5.jpg" alt=""></a></div>-->
-<!--                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/por6.jpg" alt=""></a></div>-->
-<!--                      </div>-->
-<!--                    </div>  -->
-<!--                  </div>-->
+
                </div>
             </div>
          </div>         
-         <!-- SERVICES -->
-         <div id="services">
-            <div class="line">
-               <h2 class="section-title">What we do</h2>
-               <div class="margin">
-                   <?php foreach ($serviceslist as $services):
-                   $services=new Services($services);
-                   ?>
 
 
-                  <div class="s-12 m-6 l-4 margin-bottom">
-                     <i class="icon-vector"></i>
-                     <div class="service-text">
-                        <h3><?= $services->getServicesName() ?></h3>
-                        <p><?= $services->getServicesDesc()  ?></p>
-                     </div>
+          <div id="features" style="background-color: #6f9600">
+              <div class="line">
+                  <div class="margin">
+
+
+                      <?php if(count($serviceslist)>4){
+                          $service='l-3';
+                      }
+                      else{
+                          $service='l-'. 12/count($serviceslist);
+                      }
+
+                      ?>
+                      <?php foreach ($serviceslist as $services):
+                          $services=new Services($services); ?>
+
+                          <div class="s-12 m-6 <?=$service?> margin-bottom">
+                              <img src="Admin/<?=$services->getServicesImg()?>" style="border-radius:50%;height:150px;width: 150px ;margin: auto" >
+                              <h2 style="color: white"><?=$services->getServicesName() ?></h2>
+                              <p style="color: white"><?=$services->getServicesDesc()?></p>
+                          </div>
+
+                      <?php endforeach; ?>
+
+
+
                   </div>
-
-                   <?php endforeach; ?>
-<!--                  <div class="s-12 m-6 l-4 margin-bottom">-->
-<!--                     <i class="icon-eye"></i>-->
-<!--                     <div class="service-text">-->
-<!--                        <h3>We look to the future</h3>-->
-<!--                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
-<!--                     </div>-->
-<!--                  </div>-->
-<!--                  <div class="s-12 m-12 l-4 margin-bottom">-->
-<!--                     <i class="icon-random"></i>-->
-<!--                     <div class="service-text">-->
-<!--                        <h3>We find a solution</h3>-->
-<!--                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>-->
-<!--                     </div>-->
-<!--                  </div>-->
-               </div>
-            </div>
-         </div>
+              </div>
+          </div>
 
          <!-- CONTACT -->
          <div id="contact">
@@ -337,15 +270,21 @@ $contactList = $contactMgr->getContact(1);
       </section>
       <!-- FOOTER -->
       <footer>
+
+          <?php foreach ($footer as $footer):
+          $footer=new Footer($footer);
+
+          ?>
          <div class="line">
             <div class="s-12 l-6">
-               <p> Copyright © 2020 .:Herzing College:.</p>
+               <p> Copyright © <?= $footer->getCopyright()?></p>
 
             </div>
             <div class="s-12 l-6">
-               <a class="right" title="Responsee - lightweight responsive framework">Design and coding<br> by Anjali patel</a>
+               <a class="right" title="Responsee - lightweight responsive framework">Design and coding<br> by <?= $footer->getDesignCoding()?></a>
             </div>
          </div>
+          <?php endforeach; ?>
       </footer>
       <script type="text/javascript" src="js/responsee.js"></script>
       <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>

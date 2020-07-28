@@ -41,7 +41,16 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Service Name</label>
-                                            <input type="text" class="form-control" name="services_name">
+                                            <input type="text" class="form-control" name="services_name" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>Service Image</label>
+                                            <input type="file" class="form-control" name="services_img" required>
                                         </div>
                                     </div>
                                 </div>
@@ -50,7 +59,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Short Description</label>
-                                            <input type="text" class="form-control" name="services_desc">
+                                            <input type="text" class="form-control" name="services_desc" required>
                                         </div>
                                     </div>
 
@@ -58,7 +67,7 @@
 
                                 <input type="submit" class="btn btn-info btn-fill pull-left" value="Add Services" name="addService">
                                 <div class="clearfix"></div>
-                                <span style="color: red;font-size:larger "><?php
+                                <span style="color: green;font-size:larger "><?php
                                     if(isset($_SESSION['error'])){
                                         echo $_SESSION['error'];
                                     }
@@ -94,10 +103,9 @@
                                     ?>
                                     <tr>
                                         <td><?=$services->getServicesName()?></td>
-<!--                                        $services->getMemberImg()-->
-                                        <!--                                        <td><img src="--><?//=?><!--" height="100px" width="150px" /></td>-->
+                                        <td><img src="<?=$services->getServicesImg()?>" height="100px" width="150px" /></td>
                                         <td><?=$services->getServicesDesc() ?></td>
-                                        <td><a href="Controller/TeamController.php?block=<?=$services->getTempId()?>">
+                                        <td><a href="Controller/ServicesController.php?block=<?=$services->getServicesId()?>">
                                                 Delete
                                             </a></td>
 

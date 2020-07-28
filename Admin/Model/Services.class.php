@@ -6,6 +6,7 @@ class Services
     private $services_id;
     private $temp_id;
     private $services_name;
+    private $services_img;
     private $services_desc;
 
     /**
@@ -29,14 +30,16 @@ class Services
         $this->services_id = $arr['services_id'] ?? null;
         $this->temp_id = $arr['temp_id'];
         $this->services_name = $arr['services_name'];
+        $this->services_img = $arr['services_img'];
         $this->services_desc = $arr['services_desc'];
     }
 
-    public function __construct2($arr,$path)
+    public function __construct3($arr,$id,$path)
     {
         $this->services_id = $arr['services_id'] ?? null;
-        $this->temp_id = $path;
+        $this->temp_id = $id;
         $this->services_name = $arr['services_name'];
+        $this->services_img = $path;
         $this->services_desc = $arr['services_desc'];
     }
 
@@ -55,6 +58,7 @@ class Services
     {
         $this->services_id = $services_id;
     }
+
 
     /**
      * @return mixed
@@ -86,6 +90,22 @@ class Services
     public function setServicesName($services_name)
     {
         $this->services_name = $services_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getServicesImg()
+    {
+        return $this->services_img;
+    }
+
+    /**
+     * @param mixed $services_img
+     */
+    public function setServicesImg($services_img)
+    {
+        $this->services_img = $services_img;
     }
 
     /**

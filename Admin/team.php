@@ -65,7 +65,7 @@
 
                                 <input type="submit" class="btn btn-info btn-fill pull-left" value="Add Member" name="addMember">
                                 <div class="clearfix"></div>
-                                <span style="color: red;font-size:larger "><?php
+                                <span style="color: green;font-size:larger "><?php
                                     if(isset($_SESSION['error'])){
                                         echo $_SESSION['error'];
                                     }

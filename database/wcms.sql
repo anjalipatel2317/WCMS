@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 27, 2020 at 06:39 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Generation Time: Jul 28, 2020 at 12:54 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `wcms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about`
+--
+
+DROP TABLE IF EXISTS `about`;
+CREATE TABLE IF NOT EXISTS `about` (
+  `about_id` int(11) NOT NULL AUTO_INCREMENT,
+  `temp_id` int(11) NOT NULL,
+  `about_img` varchar(5000) NOT NULL,
+  `about_title` varchar(5000) NOT NULL,
+  `about_text` varchar(10000) NOT NULL,
+  PRIMARY KEY (`about_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `about`
+--
+
+INSERT INTO `about` (`about_id`, `temp_id`, `about_img`, `about_title`, `about_text`) VALUES
+(1, 1, 'assets/img/about.jpg', 'We are Web Design Heroes', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.');
 
 -- --------------------------------------------------------
 
@@ -46,6 +69,28 @@ CREATE TABLE IF NOT EXISTS `contact` (
 
 INSERT INTO `contact` (`contact_id`, `temp_id`, `address`, `country`, `email`, `facebook`, `twitter`) VALUES
 (1, 1, '#416,1420 Boulevard Jules Potras', 'Canada', 'pkeyur888@gmail.com', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `footer`
+--
+
+DROP TABLE IF EXISTS `footer`;
+CREATE TABLE IF NOT EXISTS `footer` (
+  `footer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `temp_id` int(11) NOT NULL,
+  `copyright` varchar(5000) NOT NULL,
+  `DesignCoding` varchar(5000) NOT NULL,
+  PRIMARY KEY (`footer_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `footer`
+--
+
+INSERT INTO `footer` (`footer_id`, `temp_id`, `copyright`, `DesignCoding`) VALUES
+(1, 1, '2020 .:Herzing College:.', 'Anjali Patel');
 
 -- --------------------------------------------------------
 
@@ -82,17 +127,19 @@ CREATE TABLE IF NOT EXISTS `servises` (
   `services_id` int(11) NOT NULL AUTO_INCREMENT,
   `temp_id` int(11) NOT NULL,
   `services_name` varchar(500) NOT NULL,
+  `services_img` varchar(5000) NOT NULL,
   `services_desc` varchar(3000) NOT NULL,
   PRIMARY KEY (`services_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `servises`
 --
 
-INSERT INTO `servises` (`services_id`, `temp_id`, `services_name`, `services_desc`) VALUES
-(1, 1, 'Testing', 'We do free '),
-(2, 1, 'Testing-2', 'We develop Application ');
+INSERT INTO `servises` (`services_id`, `temp_id`, `services_name`, `services_img`, `services_desc`) VALUES
+(5, 1, 'Template Manage', 'assets/img/por3.jpg', 'do it your self'),
+(4, 1, 'Template design', 'assets/img/fun_fact.jpg', 'multiple templates design'),
+(6, 1, 'Testing', 'assets/img/por4.jpg', 'Lorem ipsum\r\n');
 
 -- --------------------------------------------------------
 
@@ -108,16 +155,15 @@ CREATE TABLE IF NOT EXISTS `team` (
   `member_img` varchar(500) NOT NULL,
   `desc` varchar(1000) NOT NULL,
   PRIMARY KEY (`team_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `team`
 --
 
 INSERT INTO `team` (`team_id`, `temp_id`, `member_name`, `member_img`, `desc`) VALUES
-(1, 1, 'Keyur Patel', 'assets/img/IMG_20200605_224550.jpg', 'Web Developer'),
 (3, 1, 'Suhani', 'assets/img/tanaphong-toochinda-GagC07wVvck-unsplash.jpg', 'HR Manager'),
-(8, 1, 'Anjali', 'assets/img/tanaphong-toochinda-GagC07wVvck-unsplash.jpg', 'Front-End Developer');
+(9, 1, 'Anjali', 'assets/img/client2.jpg', 'Web Developer');
 
 -- --------------------------------------------------------
 
