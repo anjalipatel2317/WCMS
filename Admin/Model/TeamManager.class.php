@@ -25,4 +25,14 @@ class TeamManager extends DBManager
                 $query->execute( array( $id ) );
             }
 
+
+            public function editMember($arr,$path){
+                $query=$this->db->prepare("UPDATE `team` SET `member_name`=:mName,`member_img`=:img,`desc`=:desc2 WHERE `team_id`=:id");
+                return $query->execute( array(
+                    "id"   =>$arr['member_id'] ,
+                    "mName"=>$arr['member_name'],
+                    "img"=>$path,
+                    "desc2"=>$arr['desc'],
+                ) );
+            }
 }

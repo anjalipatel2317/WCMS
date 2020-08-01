@@ -1,4 +1,4 @@
-
+<?php include "../head.inc.php"; ?>
 <!doctype html>
 <lang="en">
 <head>
@@ -35,18 +35,16 @@
 <body>
   <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
 
-  <!--
 
 
-      Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-      Tip 2: you can also add an image using data-image tag
+      <?php $user=unserialize($_SESSION['user_info']);
 
-  -->
+      ?>
 
     <div class="sidebar-wrapper">
           <div class="logo">
               <a href="index.php" class="simple-text">
-                  <b>WCMS - ADMIN</b>
+                  <b>WCMS - <?php if($user->getLevel()==0) { ?> ADMIN <?php }else{?> MODERATOR <?php }?></b>
               </a>
           </div>
 
@@ -57,12 +55,14 @@
                       <p>Dashboard</p>
                   </a>
               </li>
+              <?php if($user->getLevel()==0) : ?>
               <li>
                   <a href="user.php">
                       <i class="pe-7s-users"></i>
                       <p>User Management</p>
                   </a>
               </li>
+              <?php endif; ?>
               <li>
                   <a href="template.php">
                       <i class="pe-7s-notebook"></i>

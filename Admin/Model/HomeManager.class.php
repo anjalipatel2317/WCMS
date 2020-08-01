@@ -22,4 +22,14 @@ class HomeManager extends DBManager
         $query = $this->db->prepare( "DELETE FROM `home` WHERE `home_id`=?" );
         $query->execute( array( $id ) );
     }
+
+
+    public function editSlider($arr,$path){
+        $query=$this->db->prepare("UPDATE `home` SET `slider`=:img,`slider_text`=:text WHERE home_id=:id");
+        return $query->execute( array(
+            "id"   => $arr['slider_id'],
+            "img"=>$path,
+            "text"=>$arr['slider_text'],
+        ) );
+    }
 }

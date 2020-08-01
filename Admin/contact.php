@@ -140,9 +140,11 @@
                                             <td><?=$item->getTwitter() ?></td>
                                             <td><?=$item->getFacebook() ?></td>
 
-                                            <td><a href="Controller/ContactController.php?block=">
+                                            <td><?php  if($user->getLevel()==0): ?>
+                                                <a href="Controller/ContactController.php?block=">
                                                     Delete
-                                                </a></td>
+                                                </a><?php endif; ?>
+                                            </td>
 
                                         </tr>
                                     <?php endforeach; ?>

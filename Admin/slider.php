@@ -23,6 +23,7 @@
         $homeMgr=new HomeManager();
         $sliderlist=$homeMgr->getSlider(1);
 
+
         ?>
 
 				<br />
@@ -79,7 +80,7 @@
                                 <thead>
                                 <th>Image</th>
                                 <th>Slider Text</th>
-                                <th>Action</th>
+                                <th colspan="2">Action</th>
                                 </thead>
                                 <tbody>
                             <?php foreach ($sliderlist as $slider):
@@ -88,9 +89,22 @@
                                     <tr>
                                         <td><img src="<?=$slider->getSlider() ?>" height="100px" width="150px" /></td>
                                         <td><?=$slider->getSliderText() ?></td>
-                                        <td><a href="Controller/HomeController.php?block=<?=$slider->getHomeId()?>">
+
+                                        <td>
+                                            <a  class="" data-toggle="modal"
+                                                data-target="#exampleModal"
+                                                data-text="<?=$slider->getSliderText()?>"
+                                                data-img="<?=$slider->getSlider() ?>"
+                                                data-id="<?=$slider->getHomeId() ?>"
+                                            >
+                                                Edit
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <?php  if($user->getLevel()==0): ?>
+                                            <a href="Controller/HomeController.php?block=<?=$slider->getHomeId()?>">
                                                 Delete
-                                            </a></td>
+                                            </a> <?php endif; ?></td>
 
                                     </tr>
                                 <?php endforeach; ?>
@@ -115,29 +129,87 @@
 </div>
 
 
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Slider</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="Controller/HomeController.php" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>Slider text</label>
+                                <input type="text" class="form-control" name="slider_text" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+
+                                <label>Service Image</label><br><br>
+                                <img src="" name="sliderImg" id="sliderImg" style="width: 150px; height: 100px"><br><br>
+                                <input type="hidden" class="form-control" name="slider_id"  >
+                                <input type="hidden" class="form-control" name="slider_img2"  >
+                                <input type="file" class="form-control" name="slider_img" >
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-info btn-fill pull-right" value="Edit Slider" name="editSlider">
+
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
 </body>
 
     <!--   Core JS Files   -->
     <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
-	<!--  Checkbox, Radio & Switch Plugins -->
-	<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
 
-	<!--  Charts Plugin -->
-	<script src="assets/js/chartist.min.js"></script>
 
-    <!--  Notifications Plugin    -->
-    <script src="assets/js/bootstrap-notify.js"></script>
+<script>
+    $(function () {
 
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        $('#exampleModal').on('shown.bs.modal' ,function (e) {
+            let element = $(e.relatedTarget);
+            // console.log("hello");
 
-    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-	<script src="assets/js/light-bootstrap-dashboard.js"></script>
+            // console.log("ID: " + element.data("name"));
 
-	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
+            $(this).find("[name='slider_id']").val(element.data("id"));
+            $(this).find("[name='slider_text']").val(element.data("text"));
+            $(this).find("[name='slider_img2']").val(element.data("img"));
+            $('#sliderImg').attr('src', element.data("img"));
+
+
+        });
+    });
+
+</script>
 
 
 </html>
