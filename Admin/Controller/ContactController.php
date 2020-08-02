@@ -2,15 +2,17 @@
 include "../head.inc.php";
 $contactMgr=new ContactManager();
 
-if(isset($_POST['addContact'])){
+if(isset($_POST['EditContact'])){
 
-    $contact=new Contact($_POST,1);
-    if($contactMgr->addContact($contact)){
-        $_SESSION['error']="contact Added Successfully...";
+    if($contactMgr->updateContact($_POST,1))
+    {
+//        $welcomeTextMgr->setWelcomeText($_POST['welcome_text']);
+
+
+        $_SESSION['msg'] = "Contact info has been updated successfully...";
         header('location:../contact.php');
-    }
-    else{
-        $_SESSION['error']="Problem to add!!. Please try after some time. ";
+    } else {
+        $_SESSION['msg'] = "Fail to edit contact info.... Please Try again";
         header('location:../contact.php');
     }
 

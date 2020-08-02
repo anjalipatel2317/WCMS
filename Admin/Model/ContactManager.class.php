@@ -3,15 +3,16 @@
 
 class ContactManager extends DBManager
 {
-    public  function addContact(Contact $contact){
-        $query=$this->db->prepare("INSERT INTO `contact`( `temp_id`, `address`, `country`, `email`, `facebook`, `twitter`) VALUES (:temp_id,:address,:country,:email,:facebook,:twitter)");
+    public function updateContact($arr,$id){
+        $query       = $this->db->prepare( "UPDATE `contact` SET `address`=:address , `country`=:country , `email`=:email , `facebook`=:facebook , `twitter`=:twitter WHERE `contact_id`=:contact_id " );
+
         return $query->execute( array(
-            "temp_id"   => $contact->getTempId(),
-            "address"=>$contact->getAddress(),
-            "country"=>$contact->getCountry(),
-            "email"=>$contact->getEmail(),
-            "facebook"=>$contact->getFacebook(),
-            "twitter"=>$contact->getTwitter(),
+            "address"=> $arr['address'],
+            "country"=> $arr['country'],
+            "email"=> $arr['email'],
+            "facebook"=> $arr['facebook'],
+            "twitter"=> $arr['twitter'],
+            "contact_id"=>$id,
         ) );
     }
 

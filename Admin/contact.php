@@ -46,12 +46,16 @@
                                      </div>
                                  </div>-->
 
+                                <?php foreach ($contactList as $item):
+                                $item=new Contact($item);
+                                ?>
+
 
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input type="textarea" class="form-control" name="address" >
+                                                <input type="textarea" class="form-control" name="address" value="<?= $item->getAddress()?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -59,7 +63,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Country</label>
-                                            <input type="text" class="form-control" name="country" >
+                                            <input type="text" class="form-control" name="country" value="<?= $item->getCountry()?>" required>
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +72,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="email" class="form-control" name="email" >
+                                            <input type="email" class="form-control" name="email" value="<?= $item->getEmail() ?>" required>
                                         </div>
                                     </div>
                                 </div>
@@ -77,7 +81,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Facebook</label>
-                                            <input type="text" class="form-control" name="facebook" >
+                                            <input type="text" class="form-control" name="facebook" value="<?= $item->getFacebook()?>">
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +90,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Twitter</label>
-                                            <input type="text" class="form-control" name="twitter" >
+                                            <input type="text" class="form-control" name="twitter" value="<?= $item->getTwitter()?>" >
                                         </div>
                                     </div>
                                 </div>
@@ -95,15 +99,17 @@
 
 
 
-                                <input type="submit" class="btn btn-info btn-fill pull-left" value="Edit" name="addContact">
+                                <input type="submit" class="btn btn-info btn-fill pull-left" value="Edit" name="EditContact">
                                 <div class="clearfix"></div>
+
+                                <?php endforeach;?>
                             </form>
 
                             <span style="color: green;font-size:larger "><?php
-                                if(isset($_SESSION['error'])){
-                                    echo $_SESSION['error'];
+                                if(isset($_SESSION['msg'])){
+                                    echo $_SESSION['msg'];
                                 }
-                                $_SESSION['error']='';?></span>
+                                $_SESSION['msg']='';?></span>
                         </div>
 
                     </div>
@@ -111,7 +117,7 @@
 
 
             </div>
-            <div class="container-fluid">
+          <!--  <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -130,22 +136,24 @@
                                     <th>Action</th>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($contactList as $item):
+                                        <?php /*foreach ($contactList as $item):
                                             $item=new Contact($item);
-                                        ?>
+                                        */?>
                                         <tr>
-                                            <td><?=$item->getAddress() ?></td>
-                                            <td><?=$item->getCountry() ?></td>
-                                            <td><?=$item->getEmail() ?></td>
-                                            <td><?=$item->getTwitter() ?></td>
-                                            <td><?=$item->getFacebook() ?></td>
+                                            <td><?/*=$item->getAddress() */?></td>
+                                            <td><?/*=$item->getCountry() */?></td>
+                                            <td><?/*=$item->getEmail() */?></td>
+                                            <td><?/*=$item->getTwitter() */?></td>
+                                            <td><?/*=$item->getFacebook() */?></td>
 
-                                            <td><a href="Controller/ContactController.php?block=">
+                                            <td><?php /* if($user->getLevel()==0): */?>
+                                                <a href="Controller/ContactController.php?block=">
                                                     Delete
-                                                </a></td>
+                                                </a><?php /*endif; */?>
+                                            </td>
 
                                         </tr>
-                                    <?php endforeach; ?>
+                                    <?php /*endforeach; */?>
 
 
                                     </tbody>
@@ -157,7 +165,7 @@
 
 
                 </div>
-            </div>
+            </div>-->
 
 
 

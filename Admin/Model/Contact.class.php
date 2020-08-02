@@ -23,15 +23,7 @@ class Contact
      */
 
 
-    function __construct()
-    {
-        $a = func_get_args();
-        $i = func_num_args();
-        if (method_exists($this,$f='__construct'.$i)) {
-            call_user_func_array(array($this,$f),$a);
-        }
-    }
-    public function __construct1($arr)
+    public function __construct($arr)
     {
         $this->contact_id = $arr['contact_id'] ?? null;
         $this->temp_id = $arr['temp_id'];
@@ -42,16 +34,7 @@ class Contact
         $this->twitter = $arr['twitter'] ?? null;
     }
 
-    public function __construct2($arr,$path)
-    {
-        $this->contact_id = $arr['contact_id'] ?? null;
-        $this->temp_id = $path;
-        $this->address = $arr['address'];
-        $this->country = $arr['country'];
-        $this->email = $arr['email'];
-        $this->facebook = $arr['facebook'] ?? null;
-        $this->twitter = $arr['twitter'] ?? null;
-    }
+
 
     /**
      * @return mixed

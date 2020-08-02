@@ -1,4 +1,4 @@
-
+<?php include "../head.inc.php";?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -48,7 +48,7 @@
 
 
 
-                                    ?><a href="Controller/UserController.php?logout=logout">
+                                    ?><a href="#">
                                         <i class="pe-7s-user"></i>
                                         <?=$user->getFname()." ".$user->getLname()?>
                                     </a>

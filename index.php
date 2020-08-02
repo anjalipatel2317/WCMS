@@ -246,10 +246,10 @@ $footer = $footerMgr->getFooter(1);
                      <br />
                      <h3>Social</h3>
                       <?php if(! empty($contact->getFacebook()) ) :?>
-                             <p><i class="icon-facebook icon"></i> <a href="<?=$contact->getFacebook() ?>">Facebook</a></p>
+                             <p><i class="icon-facebook icon"></i> <a href="<?=$contact->getFacebook() ?>" target="_blank">Facebook</a></p>
                         <?php endif; ?>
                       <?php if(! empty($contact->getTwitter()) ) :?>
-                             <p class="margin-bottom"><i class="icon-twitter icon"></i> <a href="<?=$contact->getTwitter() ?>">Twitter</a></p>
+                             <p class="margin-bottom"><i class="icon-twitter icon"></i> <a href="<?=$contact->getTwitter() ?>" target="_blank">Twitter</a></p>
                       <?php endif; ?>
 
                       <?php endforeach; ?>

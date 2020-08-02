@@ -25,4 +25,17 @@ class ServicesManager extends DBManager
             $query = $this->db->prepare( "DELETE FROM `servises` WHERE `services_id`=?" );
             $query->execute( array( $id ) );
         }
+
+        public  function editServices($arr,$path){
+            $query       = $this->db->prepare("UPDATE `servises` SET  `services_name`=:name,`services_img`=:img,`services_desc`=:desc2 WHERE `services_id`=:id"  );
+            return $query->execute( array(
+                "id"=> $arr['services_id'],
+                "name"=> $arr['services_name'],
+
+                "img"=> $path,
+
+                "desc2"=>$arr['services_desc'],
+            ) );
+
+        }
 }

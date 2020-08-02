@@ -36,12 +36,11 @@ if(isset($_POST['login'])){
                 $_SESSION['login_flag'] = true;
 
                 echo $user->getLevel();
-                if ($user->getLevel() == 0) {
+
                     header('location:../index.php');
 
-                } else {
-                    header('location:../moderator/index.php');
-                }
+
+
             }
             else{
                 $_SESSION['error']='This Username is blocked... Please Contact Admin@cms.com.';
@@ -93,12 +92,11 @@ if(isset($_POST['changePsw'])){
         }
     }
 
-    if($user->getLevel()==0){
+
         header('location:../change_pass.php');
-    }
-    else{
-        header('location:../Moderator/change_pass.php');
-    }
+
+
+
 }
 
 //----------------- Update Profile ----------------
@@ -119,12 +117,9 @@ if(isset($_POST['updateProfile'])){
         $_SESSION['profile'] = "Problem to Update Profile... Please try after some time.....";
     }
 
-    if($user->getLevel()==0){
+
         header('location:../change_pass.php');
-    }
-    else{
-        header('location:../Moderator/change_pass.php');
-    }
+
 }
 
 //------------------- Block User -----------------
