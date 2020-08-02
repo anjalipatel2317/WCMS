@@ -88,7 +88,8 @@
                                     <tr>
                                         <td><img src="<?=$slider->getSlider() ?>" height="100px" width="150px" /></td>
                                         <td><?=$slider->getSliderText() ?></td>
-                                        <td><a href="Controller/HomeController.php?block=<?=$slider->getHomeId()?>">
+                                        <td>
+                                            <a href="Controller/HomeController.php?block=<?=$slider->getHomeId()?>">
                                                 Delete
                                             </a></td>
 
