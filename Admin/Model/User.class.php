@@ -47,7 +47,7 @@ class User
     }
     public function __construct3($arr,$level,$status)
     {
-        $this->id = $arr['user_id'] ?? null;
+        $this->id = isset($arr['user_id']) ? $arr['user_id'] : null;
         $this->fname = $arr['user_fname'];
         $this->lname = $arr['user_lname'];
         $this->username = $arr['username'];

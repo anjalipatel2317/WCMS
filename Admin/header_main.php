@@ -1,5 +1,5 @@
 <?php include 'head.inc.php';
-include "../head.inc.php";
+
 if (! isset($_SESSION['user_info'])) {
 header('location:login.php');
 

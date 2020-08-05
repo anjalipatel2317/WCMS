@@ -27,7 +27,7 @@ class Services
     }
     public function __construct1($arr)
     {
-        $this->services_id = $arr['services_id'] ?? null;
+        $this->services_id = isset($arr['services_id']) ? $arr['services_id'] : null;
         $this->temp_id = $arr['temp_id'];
         $this->services_name = $arr['services_name'];
         $this->services_img = $arr['services_img'];
@@ -36,7 +36,7 @@ class Services
 
     public function __construct3($arr,$id,$path)
     {
-        $this->services_id = $arr['services_id'] ?? null;
+        $this->services_id = isset($arr['services_id']) ? $arr['services_id'] : null;
         $this->temp_id = $id;
         $this->services_name = $arr['services_name'];
         $this->services_img = $path;

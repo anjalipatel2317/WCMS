@@ -18,7 +18,7 @@ class Footer
      */
     public function __construct($arr)
     {
-        $this->footer_id = $arr['footer_id'] ?? null;
+        $this->footer_id = isset($arr['footer_id']) ? $arr['footer_id'] : null;
         $this->temp_id = $arr['temp_id'];
         $this->copyright = $arr['copyright'];
         $this->DesignCoding = $arr['DesignCoding'];

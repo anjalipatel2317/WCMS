@@ -3,7 +3,7 @@
 
 class DBManager
 {
-    const HOST = "mtl-svr-cpanel";
+    const HOST = "localhost";
     const USER = "root";
     const PASS = "";
     const DBNAME = "wcms";

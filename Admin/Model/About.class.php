@@ -29,7 +29,7 @@ class About
 
     public function __construct1($arr)
     {
-        $this->about_id = $arr['about_id'] ?? null;
+        $this->about_id = isset($arr['about_id']) ? $arr['about_id'] : null;
         $this->temp_id = $arr['temp_id'];
         $this->about_img = $arr['about_img'];
         $this->about_title = $arr['about_title'];
@@ -38,7 +38,7 @@ class About
 
     public function __construct2($arr,$temp)
     {
-        $this->about_id = $arr['about_id'] ?? null;
+        $this->about_id = isset($arr['about_id']) ? $arr['about_id'] : null;
         $this->temp_id = $temp;
         $this->about_img = $arr['about_img'];
         $this->about_title = $arr['about_title'];
@@ -46,7 +46,7 @@ class About
     }
     public function __construct3($arr,$temp,$path)
     {
-        $this->about_id = $arr['about_id'] ?? null;
+        $this->about_id = isset($arr['about_id']) ? $arr['about_id'] : null;
         $this->temp_id = $temp;
         $this->about_img = $path;
         $this->about_title = $arr['about_title'];

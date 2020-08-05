@@ -27,7 +27,7 @@ class Home
     }
     public function __construct1($arr)
     {
-        $this->home_id = $arr['home_id'] ?? null;
+        $this->home_id = isset($arr['home_id']) ? $arr['home_id'] : null;
         $this->temp_id = $arr['temp_id'];
         $this->slider = $arr['slider'];
         $this->slider_text = $arr['slider_text'];
@@ -35,7 +35,7 @@ class Home
 
     public function __construct3($arr,$temp_id,$path)
     {
-        $this->home_id = $arr['home_id'] ?? null;
+        $this->home_id = isset($arr['home_id']) ? $arr['home_id'] : null;
         $this->temp_id = $temp_id;
         $this->slider = $path;
         $this->slider_text = $arr['slider_text'];

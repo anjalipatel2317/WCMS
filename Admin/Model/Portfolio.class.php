@@ -17,7 +17,7 @@ class Portfolio
      */
     public function __construct($arr)
     {
-        $this->portfolio_id = $arr['portfolio_id'] ?? null;
+        $this->portfolio_id = isset($arr['portfolio_id']) ? $arr['portfolio_id'] : null;
         $this->temp_id = $arr['temp_id'];
         $this->temp_title = $arr['temp_title'];
         $this->temp_text = $arr['temp_text'];

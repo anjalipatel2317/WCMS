@@ -29,7 +29,7 @@ class Team
 
     public function __construct1($arr)
     {
-        $this->team_id = $arr['team_id'] ?? 'null';
+        $this->team_id = isset($arr['team_id']) ? $arr['team_id'] : null;
         $this->temp_id = $arr['temp_id'];
         $this->member_name = $arr['member_name'];
         $this->desc = $arr['desc'];
@@ -38,7 +38,7 @@ class Team
 
     public function __construct3($arr,$temp_id,$path)
     {
-        $this->team_id = $arr['team_id'] ?? 'null';
+        $this->team_id = isset($arr['team_id']) ? $arr['team_id'] : null;
         $this->temp_id = $temp_id;
         $this->member_name = $arr['member_name'];
         $this->desc = $arr['desc'];

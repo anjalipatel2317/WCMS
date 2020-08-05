@@ -16,7 +16,7 @@ class WelcomeText
      */
     public function __construct($arr)
     {
-        $this->welcomeTextId = $arr['welcomeTextId'] ?? null;
+        $this->welcomeTextId = isset($arr['welcomeTextId']) ? $arr['welcomeTextId'] : null;
         $this->temp_id = $arr['temp_id'];
         $this->welcomeText = $arr['welcomeText'];
     }

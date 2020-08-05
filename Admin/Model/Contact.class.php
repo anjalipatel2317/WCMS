@@ -25,13 +25,15 @@ class Contact
 
     public function __construct($arr)
     {
-        $this->contact_id = $arr['contact_id'] ?? null;
+        $this->contact_id = isset($arr['contact_id']) ? $arr['contact_id'] : null;
         $this->temp_id = $arr['temp_id'];
         $this->address = $arr['address'];
         $this->country = $arr['country'];
         $this->email = $arr['email'];
-        $this->facebook = $arr['facebook'] ?? null;
-        $this->twitter = $arr['twitter'] ?? null;
+        $this->facebook = isset($arr['facebook']) ? $arr['facebook'] : null;
+        $this->twitter = isset($arr['twitter']) ? $arr['twitter'] : null;
+        /*$this->facebook = $arr['facebook'] ?? null;
+        $this->twitter = $arr['twitter'] ?? null;*/
     }
 
 
