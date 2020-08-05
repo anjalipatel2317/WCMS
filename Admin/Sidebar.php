@@ -63,12 +63,7 @@
                   </a>
               </li>
               <?php endif; ?>
-              <li>
-                  <a href="template.php">
-                      <i class="pe-7s-notebook"></i>
-                      <p>Template Management</p>
-                  </a>
-              </li>
+
               <li>
                   <a href="slider.php">
                       <i class="pe-7s-notebook"></i>
@@ -91,6 +86,13 @@
                   <a href="about.php">
                       <i class="pe-7s-notebook"></i>
                       <p>Manage About</p>
+                  </a>
+              </li>
+
+              <li>
+                  <a href="portfolio.php">
+                      <i class="pe-7s-notebook"></i>
+                      <p>Manage Portfolio</p>
                   </a>
               </li>
 

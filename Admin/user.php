@@ -3,7 +3,14 @@
 <html lang="en">
 <head>
 
-	<?php include 'header_main.php';?>
+	<?php include 'header_main.php';
+
+    $user=unserialize($_SESSION['user_info']);
+
+    if($user->getLevel()!=0){
+        header('location:index.php');
+    }
+	?>
 
 	<title>Admin | WCMS</title>
 

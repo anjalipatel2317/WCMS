@@ -13,9 +13,17 @@ $about = $aboutMgr->getAbout(1);
 $teamMgr=new TeamManager();
 $teamlist=$teamMgr->getMember(1);
 
+$portfolioMgr1 = new PortfolioManager();
+$temp1 = $portfolioMgr1->getportfolio(1,1);
+
+$portfolioMgr2 = new PortfolioManager();
+$temp2 = $portfolioMgr2->getportfolio(1,2);
+
+$portfolioMgr3 = new PortfolioManager();
+$temp3 = $portfolioMgr3->getportfolio(1,3);
+
 $servicesMgr=new ServicesManager();
 $serviceslist=$servicesMgr->getServices(1);
-
 
 $contactMgr=new ContactManager();
 $contactList = $contactMgr->getContact(1);
@@ -182,9 +190,18 @@ $footer = $footerMgr->getFooter(1);
                     <a class="tab-label active-btn">Web Design Templates</a>
                     <div class="tab-content">
                       <div class="margin">
-                        <div class="s-12 m-6 l-3" style="height: 230px;width: 375px"><a href="Dewi-temp1/index.html" target="_blank" class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Template 1</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img style="height: 230px" src="img/temp1.png" alt=""></a></div>
-                        <div class="s-12 m-6 l-3" style="height: 230px;width: 375px"><a href="Avilon-temp2/index.html" target="_blank" class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Template 2</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img style="height: 230px" src="img/template2.png" alt=""></a></div>
-                        <div class="s-12 m-6 l-3" style="height: 230px;width: 375px"><a href="grand-pro-opl-temp3/index.html" target="_blank" class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Template 3</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img style="height: 230px" src="img/template3.png" alt=""></a></div>
+                        <div class="s-12 m-6 l-3" style="height: 230px;width: 375px">
+                            <?php $temp1 = new Portfolio($temp1) ?>
+                            <a href="Dewi-temp1/index.html" target="_blank" class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4><?= $temp1->getTempTitle() ?></h4><p><?= $temp1->getTempText() ?></p></div><img style="height: 230px" src="img/temp1.png" alt=""></a>
+                        </div>
+                        <div class="s-12 m-6 l-3" style="height: 230px;width: 375px">
+                            <?php $temp2 = new Portfolio($temp2) ?>
+                            <a href="Avilon-temp2/index.html" target="_blank" class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4><?= $temp2->getTempTitle()?></h4><p><?= $temp2->getTempText()?></p></div><img style="height: 230px" src="img/template2.png" alt=""></a>
+                        </div>
+                        <div class="s-12 m-6 l-3" style="height: 230px;width: 375px">
+                            <?php $temp3 = new Portfolio($temp3) ?>
+                            <a href="grand-pro-opl-temp3/index.html" target="_blank" class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4><?= $temp3->getTempTitle()?></h4><p><?=$temp3->getTempText() ?></p></div><img style="height: 230px" src="img/template3.png" alt=""></a>
+                        </div>
 <!--                        <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="img/temp2.png" alt=""></a></div>-->
                       </div>
                     </div>  

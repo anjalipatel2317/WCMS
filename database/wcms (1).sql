@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 28, 2020 at 12:54 AM
+-- Generation Time: Aug 05, 2020 at 06:31 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
 --
 
 INSERT INTO `contact` (`contact_id`, `temp_id`, `address`, `country`, `email`, `facebook`, `twitter`) VALUES
-(1, 1, '#416,1420 Boulevard Jules Potras', 'Canada', 'pkeyur888@gmail.com', '', '');
+(1, 1, '#416,1420 Boulevard Jules Potras', 'Canada', 'anjali@gmail.com', 'https://www.facebook.com/', 'xyz');
 
 -- --------------------------------------------------------
 
@@ -112,9 +112,33 @@ CREATE TABLE IF NOT EXISTS `home` (
 --
 
 INSERT INTO `home` (`home_id`, `temp_id`, `slider`, `slider_text`) VALUES
-(9, 1, 'assets/img/third.jpg', 'Image 3'),
-(7, 1, 'assets/img/first.jpg', 'Image 1'),
-(8, 1, 'assets/img/second.jpg', 'Image 2');
+(9, 1, 'assets/img/third.jpg', 'Free Responsive Template'),
+(7, 1, 'assets/img/first.jpg', 'Fully Responsive Components'),
+(8, 1, 'assets/img/second.jpg', 'Build New Layout in 10 minutes!');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `portfolio`
+--
+
+DROP TABLE IF EXISTS `portfolio`;
+CREATE TABLE IF NOT EXISTS `portfolio` (
+  `portfolio_id` int(11) NOT NULL AUTO_INCREMENT,
+  `temp_id` int(11) NOT NULL,
+  `temp_title` varchar(3000) NOT NULL,
+  `temp_text` varchar(5000) NOT NULL,
+  PRIMARY KEY (`portfolio_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `portfolio`
+--
+
+INSERT INTO `portfolio` (`portfolio_id`, `temp_id`, `temp_title`, `temp_text`) VALUES
+(1, 1, 'Template 1', 'Laoreet dolore magna aliquam erat volutpat.'),
+(2, 1, 'Template 2', 'Laoreet dolore magna aliquam erat volutpat.'),
+(3, 1, 'Template 3', 'Laoreet dolore magna aliquam erat volutpat.');
 
 -- --------------------------------------------------------
 
@@ -137,9 +161,9 @@ CREATE TABLE IF NOT EXISTS `servises` (
 --
 
 INSERT INTO `servises` (`services_id`, `temp_id`, `services_name`, `services_img`, `services_desc`) VALUES
-(5, 1, 'Template Manage', 'assets/img/por3.jpg', 'do it your self'),
-(4, 1, 'Template design', 'assets/img/fun_fact.jpg', 'multiple templates design'),
-(6, 1, 'Testing', 'assets/img/por4.jpg', 'Lorem ipsum\r\n');
+(5, 1, 'WE CREATE', 'assets/img/por3.jpg', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'),
+(4, 1, 'WE LOOK TO THE FUTURE', 'assets/img/fun_fact.jpg', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'),
+(6, 1, 'WE FIND A SOLUTION', 'assets/img/por4.jpg', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.');
 
 -- --------------------------------------------------------
 
@@ -235,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `welcometext` (
 --
 
 INSERT INTO `welcometext` (`welcomeTextId`, `temp_id`, `welcomeText`) VALUES
-(1, 1, 'Aavo Pdharo Mare Desh');
+(1, 1, 'Amazing Responsive Business Template');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

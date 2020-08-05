@@ -1,9 +1,11 @@
 <?php include 'head.inc.php';
-if((!isset($_SESSION['login_flag']) && (!$_SESSION['login_flag'])))
-{
-    header('location:login.php');
+include "../head.inc.php";
+if (! isset($_SESSION['user_info'])) {
+header('location:login.php');
 
-}?>
+}
+
+?>
 <html>
 <head>
 <meta charset="utf-8" />

@@ -1,4 +1,5 @@
-<?php include "../head.inc.php";?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -46,11 +47,13 @@
                                     <?php
                                         $user=unserialize($_SESSION['user_info']);
 
+                                   ?>
 
 
-                                    ?><a href="#">
+                                    <a href="#">
                                         <i class="pe-7s-user"></i>
                                         <?=$user->getFname()." ".$user->getLname()?>
+
                                     </a>
 
                                 </li>

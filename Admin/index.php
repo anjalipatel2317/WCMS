@@ -4,8 +4,9 @@
 <head>
 
 
+    <?php include 'header_main.php';?>
 
-	<title>Admin | WCMS</title>
+
 
 </head>
 <body>
